@@ -6,15 +6,28 @@ import { foodListsData } from "./ConstantData";
 
 function App() {
   const [foodLists, setFoodLists] = useState<FoodList[]>(foodListsData);
-  const [categorizedFoods, seCategorizedFoods] = useState<FoodList[]>([]);
+  const [categorizedFoods, setCategorizedFoods] = useState<FoodList[]>([]);
 
-  const createFruitOrVegetableList = (foodList: FoodList) => {
-    seCategorizedFoods((prev) => [...prev, foodList]);
+  const createCategorizedFoodList = (foodList: FoodList) => {
+    setCategorizedFoods((prev) => [...prev, foodList]);
   };
 
   const deleteFoodList = (id: string) => {
-    setFoodLists((prev) => {
-      return prev.filter((each) => each.id !== id);
+    setFoodLists((prev) => prev.filter((each) => each.id !== id));
+  };
+
+  const createFoodList = (foodList: FoodList) => {
+    setFoodLists((prev) => [...prev, foodList]);
+  };
+
+  const deleteCategorizedFood = (id: string) => {
+    setCategorizedFoods((prev) => prev.filter((each) => each.id !== id));
+  };
+
+  const deleteFoodItem = () => {
+    setCategorizedFoods((prev) => {
+      const updatedFoodLists = prev.slice(1);
+      return [...updatedFoodLists];
     });
   };
 
@@ -22,10 +35,15 @@ function App() {
     <div className="App">
       <FoodLists
         foodLists={foodLists}
-        createFruitOrVegetableList={createFruitOrVegetableList}
+        createCategorizedFoodList={createCategorizedFoodList}
         deleteFoodList={deleteFoodList}
       />
-      <FoodCategories categorizedFoods={categorizedFoods} />
+      <FoodCategories
+        categorizedFoods={categorizedFoods}
+        createFoodList={createFoodList}
+        deleteCategorizedFood={deleteCategorizedFood}
+        deleteFoodItem={deleteFoodItem}
+      />
     </div>
   );
 }

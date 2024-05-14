@@ -8,17 +8,17 @@ export type FoodList = {
 
 type FoodListsProp = {
   foodLists: FoodList[];
-  createFruitOrVegetableList: (param: FoodList) => void;
+  createCategorizedFoodList: (param: FoodList) => void;
   deleteFoodList: (param: string) => void;
 };
 
 const FoodLists: React.FC<FoodListsProp> = ({
   foodLists,
-  createFruitOrVegetableList,
+  createCategorizedFoodList,
   deleteFoodList,
 }) => {
   const handleButton = (foodList: FoodList, id: string) => {
-    createFruitOrVegetableList(foodList);
+    createCategorizedFoodList(foodList);
     deleteFoodList(id);
   };
   return (

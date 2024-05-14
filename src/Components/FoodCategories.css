@@ -25,3 +25,7 @@
   border: 2px solid #bed754;
   background-color: #eeeeee;
 }
+.FoodCategories__Container__Buttons {
+  display: flex;
+  flex-direction: column;
+}
