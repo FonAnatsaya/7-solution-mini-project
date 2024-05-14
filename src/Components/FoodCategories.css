@@ -1,0 +1,27 @@
+.FoodCategories__Containers {
+  display: flex;
+  gap: 1rem;
+}
+.FoodCategories__Container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 2px solid #efe1d1;
+}
+.FoodCategories__Container__Title {
+  max-width: 22vw;
+  height: 3vh;
+  border: 2px solid #bed754;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #b9b4c7;
+}
+.FoodCategories__Container__Button {
+  margin: 0rem 0.5rem;
+  width: 16vw;
+  height: 4vh;
+  cursor: pointer;
+  border: 2px solid #bed754;
+  background-color: #eeeeee;
+}

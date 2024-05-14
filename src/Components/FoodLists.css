@@ -1,0 +1,12 @@
+.FoodLists__Container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.FoodLists__Button {
+  width: 16vw;
+  height: 4vh;
+  cursor: pointer;
+  border: 2px solid #bed754;
+  background-color: #eeeeee;
+}

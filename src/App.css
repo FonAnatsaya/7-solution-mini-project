@@ -1,7 +1,19 @@
 body {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
   height: 100vh;
   background-color: #222831;
+}
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+#root {
+  height: 100%;
+}
+.App {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  height: 100%;
 }

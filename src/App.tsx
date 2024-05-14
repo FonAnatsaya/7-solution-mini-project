@@ -1,14 +1,19 @@
-import React from "react";
-import logo from "./logo.svg";
+import { useState } from "react";
 import "./App.css";
-import FoodLists from "./FoodLists";
-import FoodCategories from "./FoodCategories";
+import FoodLists, { FoodList } from "./Components/FoodLists";
+import FoodCategories from "./Components/FoodCategories";
+import { foodListsData } from "./ConstantData";
 
 function App() {
+  const [foodLists, setFoodLists] = useState<FoodList[]>(foodListsData);
+  const [fruitLists, setFruitLists] = useState<FoodList[]>(foodListsData);
+  const [vegetableLists, setVegetableLists] =
+    useState<FoodList[]>(foodListsData);
+
   return (
     <div className="App">
-      <FoodLists />
-      <FoodCategories />
+      <FoodLists foodLists={foodLists} />
+      <FoodCategories fruitLists={fruitLists} vegetableLists={vegetableLists} />
     </div>
   );
 }
