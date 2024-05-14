@@ -6,13 +6,10 @@ import { foodListsData } from "./ConstantData";
 
 function App() {
   const [foodLists, setFoodLists] = useState<FoodList[]>(foodListsData);
-  const [fruitLists, setFruitLists] = useState<FoodList[]>([]);
-  const [vegetableLists, setVegetableLists] = useState<FoodList[]>([]);
+  const [categorizedFoods, seCategorizedFoods] = useState<FoodList[]>([]);
 
   const createFruitOrVegetableList = (foodList: FoodList) => {
-    foodList.type === "Fruit"
-      ? setFruitLists((prev) => [...prev, foodList])
-      : setVegetableLists((prev) => [...prev, foodList]);
+    seCategorizedFoods((prev) => [...prev, foodList]);
   };
 
   const deleteFoodList = (id: string) => {
@@ -28,7 +25,7 @@ function App() {
         createFruitOrVegetableList={createFruitOrVegetableList}
         deleteFoodList={deleteFoodList}
       />
-      <FoodCategories fruitLists={fruitLists} vegetableLists={vegetableLists} />
+      <FoodCategories categorizedFoods={categorizedFoods} />
     </div>
   );
 }

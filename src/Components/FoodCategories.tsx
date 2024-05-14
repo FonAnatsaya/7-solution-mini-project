@@ -2,45 +2,35 @@ import "./FoodCategories.css";
 import { FoodList } from "./FoodLists";
 
 type FoodCategoriesProp = {
-  fruitLists: FoodList[];
-  vegetableLists: FoodList[];
+  categorizedFoods: FoodList[];
 };
 
-const FoodCategories: React.FC<FoodCategoriesProp> = ({
-  fruitLists,
-  vegetableLists,
-}) => {
+const FoodCategories: React.FC<FoodCategoriesProp> = ({ categorizedFoods }) => {
+  const renderCategorizedFoods = (foodType: string) => {
+    return categorizedFoods
+      .filter((item) => item.type === foodType)
+      .map((categorizedItem) => (
+        <button
+          className="FoodCategories__Container__Button"
+          key={categorizedItem.id}
+        >
+          {categorizedItem.name}
+        </button>
+      ));
+  };
   return (
     <div className="FoodCategories__Containers">
       <div className="FoodCategories__Container">
         <div className="FoodCategories__Container__Title">
           <h4>Fruit</h4>
         </div>
-        {fruitLists.map((fruitList) => {
-          return (
-            <button
-              className="FoodCategories__Container__Button"
-              key={fruitList.id}
-            >
-              {fruitList.name}
-            </button>
-          );
-        })}
+        {renderCategorizedFoods("Fruit")}
       </div>
       <div className="FoodCategories__Container">
         <div className="FoodCategories__Container__Title">
           <h4>Vegetable</h4>
         </div>
-        {vegetableLists.map((vegetableList) => {
-          return (
-            <button
-              className="FoodCategories__Container__Button"
-              key={vegetableList.id}
-            >
-              {vegetableList.name}
-            </button>
-          );
-        })}
+        {renderCategorizedFoods("Vegetable")}
       </div>
     </div>
   );
