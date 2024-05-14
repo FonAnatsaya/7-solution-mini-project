@@ -15,11 +15,18 @@ function App() {
       : setVegetableLists((prev) => [...prev, foodList]);
   };
 
+  const deleteFoodList = (id: string) => {
+    setFoodLists((prev) => {
+      return prev.filter((each) => each.id !== id);
+    });
+  };
+
   return (
     <div className="App">
       <FoodLists
         foodLists={foodLists}
         createFruitOrVegetableList={createFruitOrVegetableList}
+        deleteFoodList={deleteFoodList}
       />
       <FoodCategories fruitLists={fruitLists} vegetableLists={vegetableLists} />
     </div>
