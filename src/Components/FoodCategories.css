@@ -7,25 +7,29 @@
   flex-direction: column;
   gap: 6px;
   border: 2px solid #efe1d1;
+  min-width: 20vw;
 }
 .FoodCategories__Container__Title {
   max-width: 22vw;
-  height: 3vh;
+  height: 4vh;
   border: 2px solid #bed754;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #b9b4c7;
 }
+.FoodCategories__Container__Title > span {
+  font-size: 21px;
+  font-weight: bold;
+}
 .FoodCategories__Container__Button {
   margin: 0rem 1rem;
-  width: 16vw;
-  height: 4vh;
+  min-width: 16vw;
+  height: 6vh;
   cursor: pointer;
   border: 2px solid #bed754;
   background-color: #eeeeee;
 }
-.FoodCategories__Container__Buttons {
-  display: flex;
-  flex-direction: column;
+.FoodCategories__Container__Emptybox {
+  flex: 1;
 }
