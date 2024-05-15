@@ -26,8 +26,12 @@ function App() {
 
   const deleteFoodItem = () => {
     setCategorizedFoods((prev) => {
-      const updatedFoodLists = prev.slice(1);
-      return [...updatedFoodLists];
+      const copyCategorizedFoods: FoodList[] = [...prev];
+      const removedItem: FoodList | undefined = copyCategorizedFoods.shift();
+      if (removedItem) {
+        createFoodList(removedItem);
+      }
+      return copyCategorizedFoods;
     });
   };
 

@@ -19,8 +19,7 @@ const FoodCategories: React.FC<FoodCategoriesProp> = ({
     deleteCategorizedFood(foodList.id);
   };
 
-  const handleFoodContainerClicked = (foodList: FoodList) => {
-    createFoodList(foodList);
+  const handleEmptySpaceClicked = () => {
     deleteFoodItem();
   };
 
@@ -42,19 +41,23 @@ const FoodCategories: React.FC<FoodCategoriesProp> = ({
     <div className="FoodCategories__Containers">
       <div className="FoodCategories__Container">
         <div className="FoodCategories__Container__Title">
-          <h4>Fruit</h4>
+          <span>Fruit</span>
         </div>
-        <div className="FoodCategories__Container__Buttons">
-          {renderCategorizedFoods("Fruit")}
-        </div>
+        {renderCategorizedFoods("Fruit")}
+        <div
+          className="FoodCategories__Container__Emptybox"
+          onClick={handleEmptySpaceClicked}
+        ></div>
       </div>
       <div className="FoodCategories__Container">
         <div className="FoodCategories__Container__Title">
-          <h4>Vegetable</h4>
+          <span>Vegetable</span>
         </div>
-        <div className="FoodCategories__Container__Buttons">
-          {renderCategorizedFoods("Vegetable")}
-        </div>
+        {renderCategorizedFoods("Vegetable")}
+        <div
+          className="FoodCategories__Container__Emptybox"
+          onClick={handleEmptySpaceClicked}
+        ></div>
       </div>
     </div>
   );
